@@ -1,4 +1,6 @@
-import {useState,useEffect} from 'react'
+import './Products.css';
+import {useState,useEffect} from 'react';
+
 
 function Products()
 {
@@ -15,33 +17,41 @@ function Products()
     },[]);
 
     return(
-        <div className='main-container'>
+        <div >
+            <div className='items-header'>
+                <h1 className='heading'>This is FakeStore Products </h1>
+                <h3 className='heading'><a href='https://fakestoreapi.com/products'>From FakeStoreAPI</a></h3>
+            </div>
+            <div className='main-container'>
             {
                 items.map((item,index)=>{
                     return(
-                        <div className='item-container'>
-                            <div className='items'>
+                        <div className='item-container' key={index}>
+                            {/* <div className='items'>
                                 <p>{item.id}</p>                   
-                            </div>
-                            <div className='items'>
-                                <p>{item.title}</p>                   
-                            </div>
-                            <div className='items'>
-                                <p>{item.price}</p>                   
-                            </div>
-                            <div className='items'>
-                                <p>{item.description}</p>                   
-                            </div>
-                            <div className='items'>
-                                <p>{item.category}</p>                   
-                            </div>
+                            </div> */}
                             <div className='items'>
                                 <img src={item.image} alt={item.title}/>
                             </div>
+                            <div className='items'>
+                                <p className='title'>{item.title}</p>                   
+                            </div>
+                            <div className='items'>
+                                <p className='price'>{item.price+' Rs'}</p>                   
+                            </div>
+                            <div className='items'>
+                                <p className='description'>{item.description}</p>                   
+                            </div>
+                            <hr/>
+                            <div className='items'>
+                                <p className='category'>{item.category}</p>                   
+                            </div>
+                            
                         </div>
                     )
                 })
             }
+            </div>
 
         </div>
     )
